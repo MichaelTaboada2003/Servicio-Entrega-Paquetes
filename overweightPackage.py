@@ -21,7 +21,7 @@ class OverweightPackage(Package):
             return super().calculate()
         
     def __str__(self):
-        return f"OverweightPackage with id {self.id}, weight {self.weight}, cost per gram {self.cost_per_gram}, description {self.description}, and overweight cost per gram {self.overweight_cost_per_gram}." 
+        return f"OverweightPackage: {self.id} - {self.weight}g - {self.description} - ${self.cost_per_gram}/g + ${self.overweight_cost_per_gram} overweight_cost" 
         
     def equals(self, other):
         if isinstance(other, OverweightPackage):

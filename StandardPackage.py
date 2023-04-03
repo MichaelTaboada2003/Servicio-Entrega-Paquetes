@@ -20,7 +20,7 @@ class StandardPackage(Package):
         return super().calculate() + self.delivery_fee
     
     def __str__(self):
-        return f"StandardPackage {self.id} - {self.description} - {self.weight}g - ${self.cost_per_gram}/g + ${self.delivery_fee} delivery fee"
+        return f"StandardPackage: {self.id} - {self.weight}g - {self.description} - ${self.cost_per_gram}/g + ${self.delivery_fee} delivery fee"
     
     def equals(self, other):
         if isinstance(other, StandardPackage):

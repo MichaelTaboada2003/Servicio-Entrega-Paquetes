@@ -46,7 +46,7 @@ class Package(object):
         self._cost_per_gram = value if value > 0 else 0
         
     def __str__(self):
-        return f"Package {self.id} - {self.weight}g- {self.description} - ${self.cost_per_gram}/g"
+        return f"Package: {self.id} - {self.weight}g- {self.description} - ${self.cost_per_gram}/g"
     
     def equals(self, other):
         if isinstance(other, Package):
