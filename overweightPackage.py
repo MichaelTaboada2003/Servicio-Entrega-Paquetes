@@ -1,29 +1,85 @@
 from package import Package
+#the Delivery class is defined, which is the one that will be in charge of delivering the package, for this the Person class and the address class will also be called
+class Delivery:
+    #the constructor of each of the package attributes is created
+    def __init__(self, item: str = "item", sender: str = "sender", receive: str = "receive", sender_address: str = "sender_address", receiver_address: str = "receiver_address", contact: str = "contact", date: str = "date", time: float = 0.0):
+        self.items = []
+        for package in item:
+            if isinstance(package, Package):
+                self.items.append(package)
+        self.sender = sender
+        self.receive = receive
+        self.sender_address = sender_address
+        self.receiver_address = receiver_address
+        self.contact = contact
+        self.date = date
+        self.time = time
+      
+    #we define the get and set of each of the attributes, including sender and receiver
+    @property
+    def items(self) -> str:
+        return self._items
 
-class OverweightPackage(Package):
-    def __init__(self, id, weight, description, cost_per_gram, overweight_cost_per_gram):
-        super().__init__(id, weight, description, cost_per_gram)
-        self.overweight_cost_per_gram = overweight_cost_per_gram
+    @items.setter
+    def items(self, items) -> str:
+        self._items = []
+        for package in items:
+            if isinstance(package, Package):
+                self._items.append(package)
 
     @property
-    def overweight_cost_per_gram(self):
-        return self._overweight_cost_per_gram
+    def sender(self) -> str:
+        return self._sender
 
-    @overweight_cost_per_gram.setter
-    def overweight_cost_per_gram(self, overweight_cost_per_gram):
-        self._overweight_cost_per_gram = overweight_cost_per_gram
+    @sender.setter
+    def sender(self, sender) -> str:
+        self._sender = sender
 
-    def calculate(self):
-        if self.weight > 50:
-            overweight_cost = (self.weight - 50) * self.overweight_cost_per_gram
-            return super().calculate() + overweight_cost
-        else:
-            return super().calculate()
-        
-    def __str__(self):
-        return f"OverweightPackage: {self.id} - {self.weight}g - {self.description} - ${self.cost_per_gram}/g + ${self.overweight_cost_per_gram} overweight_cost" 
-        
-    def equals(self, other):
-        if isinstance(other, OverweightPackage):
-            return super().equals(other) and self.overweight_cost_per_gram == other.overweight_cost_per_gram
-        return False
+    @property
+    def receive(self) -> str:
+        return self._receive
+
+    @receive.setter
+    def receive(self, receive) -> str:
+        self._receive = receive
+
+    @property
+    def sender_address(self) -> str:
+        return self._sender_address
+
+    @sender_address.setter
+    def sender_address(self, sender_address) -> str:
+        self._sender_address = sender_address
+
+    @property
+    def receiver_address(self) -> str:
+        return self._receiver_address
+
+    @receiver_address.setter
+    def receiver_address(self, receiver_address) -> str:
+        self._receiver_address = receiver_address
+      
+    #the set and get functions are defined to be able to modify the time, date and contact attributes
+    @property
+    def contact(self) -> str:
+        return self._contact
+
+    @contact.setter
+    def contact(self, contact) -> str:
+        self._contact = contact
+
+    @property
+    def date(self) -> str:
+        return self._date
+
+    @date.setter
+    def date(self, date) -> str:
+        self._date = date
+
+    @property
+    def time(self) -> float:
+        return self._time
+
+    @time.setter
+    def time(self, time) -> float:
+        self._time = time
